@@ -1,19 +1,28 @@
-Save the currect mortgage interest rate (swedbank). Use github action to schedule this daily. 
+![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)
+
+# README
+
+Extract the current mortgage interest rate (swedbank) and save if the rate is adjusted.
+
+![interest_rate](images/lineplot.png)
 
 ```sh
 # project tree
 
 project/
-|-- .github
-|   `-- workflows
-|       `-- schedule.yml
-|-- bin/webscrape.py
+|-- .github/workflows/schedule.yml
+|-- bin/
+|   |-- lineplot.py
+|   ´-- webscrape.py
 |-- env/requirements.txt
+|-- img/lineplot.png
 |-- swedbank.csv
 `-- README.md
 ```
 
 ---
+
+## Setup
 
 The `requirements.txt` contains all the libraries used for the project. 
 
@@ -21,14 +30,14 @@ The `requirements.txt` contains all the libraries used for the project.
 # To generate requirements.txt
 
 pip3 install pipreqs
-python -m pipreqs.pipreqs .
+python -m pipreqs.pipreqs env/requirements.txt
 ```
 
 The `webscrape.py` extract the current mortgage interest rate and saves it into `swedbank.csv`, that can be used for further analysis.
 
-The `.github/workflows/schedule.yml` checks the homepage every work day (twice to be sure). 
+The `.github/workflows/schedule.yml` checks the homepage every work day.
 
->Github Actions has a built in function for schedule executable actions; CI/CD (Continous Integration and Continuous Deployment).
+> Github Actions has a built in function for schedule executable actions; CI/CD (Continous Integration and Continuous Deployment).
 
 ```sh
 # generate the file
