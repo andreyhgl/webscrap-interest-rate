@@ -4,6 +4,8 @@ on:
   push:
     paths:
       - 'swedbank.csv'
+  workflow_dispatch:
+
 jobs:
   generate-lineplot:
     runs-on: ubuntu-latest
