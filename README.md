@@ -42,7 +42,7 @@ project/
   
   The `.github/workflows/webscrape.yml` checks the homepage every work day.
   
-  > [!Tip]
+  > [!TIP]
   > Github Actions has a built in function for schedule executable actions; CI/CD (Continous Integration and Continuous Deployment).
   
   ```sh
