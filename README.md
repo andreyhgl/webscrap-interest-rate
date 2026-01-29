@@ -1,4 +1,5 @@
 ![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)
+[![Render lineplot](https://github.com/andreyhgl/webscrape-interest-rate/actions/workflows/render_lineplot.yml/badge.svg)](https://github.com/andreyhgl/webscrape-interest-rate/actions/workflows/render_lineplot.yml)
 
 # README
 
@@ -15,7 +16,7 @@ This repository (1) extract the current mortgage interest rate (from swedbank), 
 ```
 project/
 |-- .github/workflows
-|   |-- lineplot.yml
+|   |-- render_lineplot.yml
 |   `-- webscrape.yml
 |-- bin/
 |   |-- lineplot.py
