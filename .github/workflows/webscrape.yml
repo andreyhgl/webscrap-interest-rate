@@ -36,13 +36,13 @@ jobs:
         echo $env.COND
         echo $GITHUB_ENV.COND
 
-    - uses: actions4git/setup-git@v1
+    - uses: actions4git/setup-git@38e633a6ce057098b96cd208d0e91d0dacf48f2a
     - name: commit & push
       if: env.COND == 'swedbank.csv'
       run: |
         git add swedbank.csv
-        git commit -m "github-actions @ $(date +'%Y-%m-%d %H:%M:%S')"
-        git push
+        git diff-index --quiet HEAD || git commit -m "github-actions: append new value @ $(date +'%Y-%m-%d %H:%M:%S')"
+        git push origin
 
     - name: no update
       if: env.COND == ''
