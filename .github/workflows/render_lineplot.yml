@@ -1,10 +1,12 @@
 name: Render lineplot
 
 on:
-  push:
-    paths:
-      - swedbank.csv
   workflow_dispatch:
+  workflow_run:
+    workflows:
+      - webscrape
+    types:
+      - completed
 
 permissions:
   contents: write
@@ -12,6 +14,9 @@ permissions:
 jobs:
   generate-lineplot:
     runs-on: ubuntu-latest
+
+    # only run if workflow 'webscrape' succeeded
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}  
 
     steps:
       - name: checkout repo
