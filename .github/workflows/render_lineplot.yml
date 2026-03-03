@@ -2,11 +2,9 @@ name: Render lineplot
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows:
-      - webscrape
-    types:
-      - completed
+  push:
+    paths:
+      - swedbank.csv
 
 permissions:
   contents: write
