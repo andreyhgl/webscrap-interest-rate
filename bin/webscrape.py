@@ -24,7 +24,7 @@ interests = soup.find_all('td')
 
 # extract interest rates
 values = []
-for i in range(25, 47, 2): 
+for i in range(2, 33, 3): 
   val = interests[i].text
 
   # remove white space & extra characters
