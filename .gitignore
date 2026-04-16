@@ -1,4 +1,6 @@
 .DS_Store
 *.log
 *.ipynb*
+
 environment.yml
+*/__marimo__*

@@ -1,35 +1,25 @@
 ![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)
 [![Render lineplot](https://github.com/andreyhgl/webscrap-interest-rate/actions/workflows/render_lineplot.yml/badge.svg)](https://github.com/andreyhgl/webscrap-interest-rate/actions/workflows/render_lineplot.yml)
 
+> [!NOTE]
+> This repo is an effort to learn python. Hence, there will be way more comments and steps than needed.
+
 # README
 
-Visualise the morgage interest rate over time
+This repository (1) extract the current mortgage interest rate (from swedbank), (2) saves if the rates has been adjusted, and (3) plots the rates over time.
 
-![interest_rate](images/lineplot.png)
+<!--
 
-### The project
+<details><summary>Code exploration</summary>
 
-This repository (1) extract the current mortgage interest rate (from swedbank), (2) saves if the rate is adjusted, and (3) plots the rate over time.
+</details>
 
-### File structure
+-->
 
-```
-project/
-|-- .github/workflows
-|   |-- render_lineplot.yml
-|   `-- webscrape.yml
-|-- bin/
-|   |-- lineplot.py
-|   ´-- webscrape.py
-|-- env/requirements.txt
-|-- image/lineplot.png
-|-- swedbank.csv
-`-- README.md
-```
+<details><summary>Project setup</summary>
 
-<details>
-  <summary>Setup</summary><br>
-  
+This project uses multiple python libraries.
+
 The `requirements.txt` contains all the libraries used for the project. 
 
 ```sh
@@ -79,3 +69,23 @@ jobs:
 ```
 
 </details>
+
+## Line plot
+
+![interest_rate](images/lineplot.png)
+
+### File structure
+
+```
+project/
+|-- .github/workflows
+|   |-- render_lineplot.yml
+|   `-- webscrape.yml
+|-- bin/
+|   |-- lineplot.py
+|   ´-- webscrape.py
+|-- env/requirements.txt
+|-- image/lineplot.png
+|-- swedbank.csv
+`-- README.md
+```
