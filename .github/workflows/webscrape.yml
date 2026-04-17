@@ -47,3 +47,8 @@ jobs:
       - name: no update
         if: steps.check.outputs.changed == 'false'
         run: echo "No update to swedbank.csv — nothing to commit"
+
+  plot:
+    needs: check-homepage
+    if: needs.check-homepage.outputs.changed == 'true'
+    uses: ./.github/workflows/render_lineplot.yml

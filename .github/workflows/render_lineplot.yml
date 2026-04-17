@@ -1,10 +1,9 @@
 name: Render lineplot
 
 on:
+  # Triggers from .github/workflows/webscrap.yml
+  workflow_call:
   workflow_dispatch:
-  push:
-    paths:
-      - swedbank.csv
 
 permissions:
   contents: write
