@@ -14,7 +14,7 @@ jobs:
       image: ghcr.io/andreyhgl/py-webscrape:latest
 
     steps:
-      - name: Checkout repo
+      - name: checkout repo
         uses: actions/checkout@v4
 
       # Run the scraper. The script reads/writes swedbank.csv in the current
@@ -22,11 +22,8 @@ jobs:
       - name: run scraper
         run: python bin/webscrape.py
 
-      # Inside a container, actions4git may not work, setup manually
-      - name: configure git
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
+      - name: setup git directory
+        run: git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
       # Check if the scraper produced changes and commit if so.
       - name: check for changes
@@ -41,6 +38,8 @@ jobs:
       - name: commit & push
         if: steps.check.outputs.changed == 'true'
         run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add swedbank.csv
           git commit -m "github-actions: append new values @ $(date +'%Y-%m-%d %H:%M:%S')"
           git push origin
