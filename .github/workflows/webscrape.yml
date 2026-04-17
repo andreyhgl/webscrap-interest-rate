@@ -5,9 +5,14 @@ on:
     - cron: '0 10 * * 1-5' # mon - fri
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   check-homepage:
     runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.check.outputs.changed }}
 
     # use docker image, no need to install dependencies
     container:
@@ -48,7 +53,7 @@ jobs:
         if: steps.check.outputs.changed == 'false'
         run: echo "No update to swedbank.csv — nothing to commit"
 
-  plot:
+  render_lineplot:
     needs: check-homepage
     if: needs.check-homepage.outputs.changed == 'true'
     uses: ./.github/workflows/render_lineplot.yml
