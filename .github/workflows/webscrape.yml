@@ -40,6 +40,8 @@ jobs:
             echo "changed=false" >> $GITHUB_OUTPUT
           fi
 
+          echo "DEBUG: Output variable = $(cat $GITHUB_OUTPUT | grep changed)"
+
       - name: commit & push
         if: steps.check.outputs.changed == 'true'
         run: |
