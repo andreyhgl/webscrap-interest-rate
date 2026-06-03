@@ -34,12 +34,10 @@ jobs:
       - name: check for changes
         id: check
         run: |
-          if [[ -n "$(git status --porcelain swedbank.csv)" ]]; then
+          if git diff-index --quiet HEAD -- swedbank.csv; then
             echo "changed=true" >> $GITHUB_OUTPUT
-            echo "Rate is new"
           else
             echo "changed=false" >> $GITHUB_OUTPUT
-            echo "No difference in rate"
           fi
 
           echo "DEBUG: Output variable = $(cat $GITHUB_OUTPUT | grep changed)"
