@@ -35,9 +35,9 @@ jobs:
         id: check
         run: |
           if git diff-index --quiet HEAD -- swedbank.csv; then
-            echo "changed=true" >> $GITHUB_OUTPUT
-          else
             echo "changed=false" >> $GITHUB_OUTPUT
+          else
+            echo "changed=true" >> $GITHUB_OUTPUT
           fi
 
           echo "DEBUG: Output variable = $(cat $GITHUB_OUTPUT | grep changed)"
