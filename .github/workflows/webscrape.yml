@@ -44,6 +44,12 @@ jobs:
 
           echo "DEBUG: Output variable = $(cat $GITHUB_OUTPUT | grep changed)"
 
+      - name: debug
+        run: |
+          pwd
+          ls -la swedbank.csv
+          git diff swedbank.csv
+
       - name: commit & push
         if: steps.check.outputs.changed == 'true'
         run: |
