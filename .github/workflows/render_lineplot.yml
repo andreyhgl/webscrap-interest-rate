@@ -37,6 +37,6 @@ jobs:
       - name: Commit & Push
         run: |
           git add images/lineplot.png
-          git pull --rebase origin main
           git diff-index --quiet HEAD -- images/lineplot.png || git commit -m "github-actions: render lineplot @ $(date +'%Y-%m-%d %H:%M:%S')"
+          git pull --rebase origin main
           git push origin
